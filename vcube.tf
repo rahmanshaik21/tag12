@@ -17,7 +17,7 @@ resource "aws_instance" "web" {
 
 resource "aws_s3_bucket" "b1" {
 
-  bucket = "s3-terraform-bucket-lab-9-3-23"
+  bucket = "s3-terraform-bucket-lab-9-3-24"
 
   acl    = "private"   # or can be "public-read"
 
