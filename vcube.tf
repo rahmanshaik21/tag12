@@ -1,28 +1,32 @@
-provider "aws"{
-  region ="us-east-1"
-  access key="AKIAY3VVZYFYAYSKE3I2"
-  secretkey="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"
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "AKIAY3VVZYFYJ7NEXFMT"
+  secret_key = "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"
 }
 
-resource "aws_instance" "web"{
-  ami="ami-0989fb15ce71ba39e"
-  instance_type=t2.micro"
-  key_name="Rahmankeypair"
-  tags={
-    Name="Terraform"
-    
-#create a bucket
-resource "aws_s3_bucket" "b1"{
-bucket="s3-terraform-bucket-lab-7-15-2023-1"
-acl ="provate" 
+resource "aws_instance" "web" {
+  ami           = "ami-053b0d53c279acc90"
+  instance_type = "t2.small"
+  key_name      = "Laptopkeypair"
+  tags = {
+    Name = "madhuterraform"
+  }
 }
 
-#upload a object
+# Create a bucket
 
-resource "aws_s3_bucket_object" "file1"{
-bucket =aws_s3_bucket.b1.id
-key="vcube1048am"
-acl="private" 
-source="/root/vcube/hello.txt"
-etag-filemd5("/root/vcube/hello.txt")
+resource "aws_s3_bucket" "b1" {
+
+  bucket = "s3-terraform-bucket-lab-9-3-23"
+
+  acl    = "private"   # or can be "public-read"
+
+  tags = {
+
+    Name        = "My bucket1"
+
+    Environment = "Dev"
+
+  }
+
 }
